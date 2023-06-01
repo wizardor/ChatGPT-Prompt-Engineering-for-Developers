@@ -1,0 +1,886 @@
+﻿1
+00:00:05,133 --> 00:00:08,033
+Las Vegas models are very good
+at transforming
+
+2
+00:00:08,033 --> 00:00:12,300
+as input to a different format, such as
+inputting a piece of text in one language
+
+3
+00:00:12,600 --> 00:00:16,500
+and transforming it,
+or translating it to a different language
+
+4
+00:00:16,766 --> 00:00:19,200
+or helping with spelling
+and grammar correction.
+
+5
+00:00:19,200 --> 00:00:21,000
+So taking this input, the piece of text
+
+6
+00:00:21,000 --> 00:00:24,666
+that may not be fully grammatical
+and helping you to fix that up a bit,
+
+7
+00:00:25,166 --> 00:00:30,900
+or even transforming formats
+such as inputting HTML and opposing JSON.
+
+8
+00:00:31,200 --> 00:00:34,933
+So there's a bunch of applications
+that I used to write somewhat painfully
+
+9
+00:00:34,933 --> 00:00:37,300
+with a bunch of regular expressions
+that would definitely
+
+10
+00:00:37,333 --> 00:00:40,100
+be much more simply implemented
+now with a large language.
+
+11
+00:00:40,100 --> 00:00:42,033
+And although in a few prompts,
+
+12
+00:00:42,033 --> 00:00:46,366
+yeah, I used to GPT to proofread
+pretty much everything I write these days.
+
+13
+00:00:46,533 --> 00:00:49,566
+So I'm excited to show you
+some more examples in the notebook now.
+
+14
+00:00:51,000 --> 00:00:53,033
+So first we'll
+
+15
+00:00:53,033 --> 00:00:57,566
+import
+openai and also use the same completion
+
+16
+00:00:57,566 --> 00:01:00,600
+helper function that we've been using
+throughout the videos.
+
+17
+00:01:01,233 --> 00:01:04,233
+And the first thing we'll do
+is a translation task.
+
+18
+00:01:04,600 --> 00:01:07,900
+So large language
+models are trained on a lot of text
+
+19
+00:01:07,900 --> 00:01:10,500
+from kind of many sources,
+a lot of which is the Internet.
+
+20
+00:01:10,500 --> 00:01:13,000
+And this is kind of,
+of course, in many different languages.
+
+21
+00:01:13,000 --> 00:01:16,466
+So this kind of imbues the model
+with the ability to do translation.
+
+22
+00:01:16,866 --> 00:01:19,200
+And these models know
+kind of hundreds of languages
+
+23
+00:01:19,433 --> 00:01:21,633
+to varying degrees of proficiency.
+
+24
+00:01:21,633 --> 00:01:24,900
+And so we'll go through some examples
+of how to use this capability.
+
+25
+00:01:26,400 --> 00:01:29,100
+So let's start off with something simple.
+
+26
+00:01:29,100 --> 00:01:30,600
+So in this first example,
+
+27
+00:01:30,600 --> 00:01:34,366
+the prompt is translate
+the following English text to Spanish.
+
+28
+00:01:35,100 --> 00:01:37,400
+Hi, I would like to order a blender
+
+29
+00:01:37,400 --> 00:01:40,900
+and the response is allow me
+goose diarrhea
+
+30
+00:01:41,166 --> 00:01:44,400
+or then a liquid quadra.
+
+31
+00:01:44,400 --> 00:01:47,733
+And I'm very sorry to all of you
+Spanish speakers.
+
+32
+00:01:47,733 --> 00:01:51,700
+I never learn Spanish,
+unfortunately, as you can definitely tell.
+
+33
+00:01:53,400 --> 00:01:55,900
+Okay, let's try another example.
+
+34
+00:01:56,566 --> 00:01:59,500
+So in this example,
+
+35
+00:01:59,533 --> 00:02:02,566
+the prompt is
+tell me what language this is.
+
+36
+00:02:03,800 --> 00:02:05,833
+And then this is in French
+
+37
+00:02:06,166 --> 00:02:08,400
+Colombian food lump of death
+
+38
+00:02:09,000 --> 00:02:12,133
+and say let's from this.
+
+39
+00:02:12,133 --> 00:02:17,800
+And the model has identified
+that this is French.
+
+40
+00:02:17,800 --> 00:02:20,833
+The model can also do
+multiple translations at once.
+
+41
+00:02:21,666 --> 00:02:24,000
+So in this example, let's say translate
+
+42
+00:02:24,000 --> 00:02:27,266
+the following text to French and Spanish.
+
+43
+00:02:27,266 --> 00:02:27,933
+And you know what?
+
+44
+00:02:27,933 --> 00:02:30,000
+Let's add another and English
+
+45
+00:02:31,366 --> 00:02:34,466
+pirates.
+
+46
+00:02:34,466 --> 00:02:40,533
+The text is I want to order a basketball.
+
+47
+00:02:40,533 --> 00:02:43,233
+So here we have French, Spanish
+
+48
+00:02:44,100 --> 00:02:46,433
+and English pirates.
+
+49
+00:02:46,966 --> 00:02:49,666
+So in some languages
+the translation can change
+
+50
+00:02:49,666 --> 00:02:52,433
+depending on the speaker's relationship
+to the listener.
+
+51
+00:02:52,800 --> 00:02:55,933
+And you can also explain this
+to the language model,
+
+52
+00:02:55,933 --> 00:02:59,166
+and it will be able to kind of
+translate it accordingly.
+
+53
+00:02:59,633 --> 00:03:03,033
+So in this example,
+we say translate the following text
+
+54
+00:03:03,033 --> 00:03:05,833
+to Spanish
+in both the formal and informal forms.
+
+55
+00:03:06,166 --> 00:03:09,166
+Would you like to order a pillow
+and also notice here
+
+56
+00:03:09,333 --> 00:03:12,866
+we're using a different delimiter
+than these back texts.
+
+57
+00:03:12,900 --> 00:03:15,900
+It doesn't really matter as long as it's
+kind of a clear separation.
+
+58
+00:03:17,733 --> 00:03:20,733
+So here we have the formal and informal.
+
+59
+00:03:21,733 --> 00:03:24,933
+So informal as when you're speaking
+to someone who's maybe senior to you
+
+60
+00:03:24,933 --> 00:03:28,333
+or you're in a professional situation,
+that's when you use a formal tone.
+
+61
+00:03:28,333 --> 00:03:32,166
+And then informal is when you're speaking
+to maybe a group of friends.
+
+62
+00:03:32,766 --> 00:03:38,033
+I don't actually speak Spanish, but my dad
+does, and he says that this is correct.
+
+63
+00:03:38,033 --> 00:03:41,466
+So for the next example,
+we're going to pretend
+
+64
+00:03:41,466 --> 00:03:45,300
+that we're in charge
+of a multinational e-commerce company.
+
+65
+00:03:45,466 --> 00:03:48,833
+And so the user messages are going to be
+in all different languages.
+
+66
+00:03:48,833 --> 00:03:50,500
+And so users are going to be telling us
+
+67
+00:03:50,500 --> 00:03:54,000
+about the issues
+in a wide variety of languages.
+
+68
+00:03:54,700 --> 00:03:57,666
+So we need a universal translator.
+
+69
+00:03:57,666 --> 00:03:59,200
+So first we'll just paste
+
+70
+00:03:59,200 --> 00:04:03,066
+in a list of user messages
+in a variety of different languages.
+
+71
+00:04:04,700 --> 00:04:06,900
+And now we will loop through
+
+72
+00:04:10,466 --> 00:04:12,700
+each of these user messages.
+
+73
+00:04:12,700 --> 00:04:17,966
+So for issue and user messages,
+
+74
+00:04:17,966 --> 00:04:21,466
+and then I'm going to copy
+over the slightly longer code block.
+
+75
+00:04:22,900 --> 00:04:25,800
+And so the first thing we'll do
+is ask the model
+
+76
+00:04:25,800 --> 00:04:29,366
+to tell us what language the issue is in.
+
+77
+00:04:29,500 --> 00:04:31,500
+So here's the prompt.
+
+78
+00:04:31,500 --> 00:04:36,600
+Then we'll print out the original
+messages, language and the issue,
+
+79
+00:04:37,100 --> 00:04:42,600
+and then we'll ask the model
+to translate it into English and Korean.
+
+80
+00:04:42,600 --> 00:04:45,500
+So that's from this.
+
+81
+00:04:45,500 --> 00:04:54,800
+So the original message in French,
+so we have a variety of languages
+
+82
+00:04:54,800 --> 00:04:58,800
+and then the model translates them
+into English and then Korean
+
+83
+00:04:59,466 --> 00:05:01,033
+and you can kind of see here.
+
+84
+00:05:01,033 --> 00:05:03,900
+So the model says this is French.
+
+85
+00:05:04,400 --> 00:05:09,633
+So that's because the response from this
+prompt is going to be, this is French.
+
+86
+00:05:10,000 --> 00:05:12,566
+You could try editing this prompt
+to say something like,
+
+87
+00:05:12,766 --> 00:05:14,066
+Tell me what language this is.
+
+88
+00:05:14,066 --> 00:05:16,166
+Respond with only one
+
+89
+00:05:16,166 --> 00:05:19,466
+with only one word, or
+don't use a sentence, that kind of thing.
+
+90
+00:05:19,466 --> 00:05:23,733
+If you wanted this to just be one word,
+or you could ask for it in a Jason format
+
+91
+00:05:23,733 --> 00:05:24,466
+or something like that,
+
+92
+00:05:24,466 --> 00:05:29,066
+which would probably encourage it
+to not use a whole sentence.
+
+93
+00:05:29,066 --> 00:05:30,800
+And so amazing.
+
+94
+00:05:30,800 --> 00:05:33,500
+You've just built a universal translator.
+
+95
+00:05:33,800 --> 00:05:36,066
+And also feel free to pause the video
+
+96
+00:05:36,433 --> 00:05:40,266
+and add kind of any other languages
+you want to try here.
+
+97
+00:05:40,266 --> 00:05:45,900
+Maybe languages you speak your self
+and see how the model does.
+
+98
+00:05:45,900 --> 00:05:49,833
+So the next thing we're going to dive
+into is tone transformation.
+
+99
+00:05:50,300 --> 00:05:53,033
+Writing can vary
+based on an intended audience.
+
+100
+00:05:53,033 --> 00:05:58,000
+You know the way that I would write
+an email to a colleague or a professor
+
+101
+00:05:58,000 --> 00:06:01,200
+is obviously going to be quite different
+to the way I text my younger brother.
+
+102
+00:06:01,800 --> 00:06:06,600
+And so interactivity can actually
+also help produce different tones.
+
+103
+00:06:06,600 --> 00:06:08,833
+So let's look at some examples.
+
+104
+00:06:09,333 --> 00:06:11,800
+So in this first example,
+
+105
+00:06:11,800 --> 00:06:15,400
+the prompt is translate the following
+from slang to a business letter.
+
+106
+00:06:15,800 --> 00:06:16,966
+Dude, this is Joe.
+
+107
+00:06:16,966 --> 00:06:20,966
+Check out the spec on the standing lamp.
+
+108
+00:06:20,966 --> 00:06:26,233
+So let's execute this.
+
+109
+00:06:26,233 --> 00:06:30,000
+And as you can see,
+we have a much more formal business letter
+
+110
+00:06:30,600 --> 00:06:34,933
+with a proposal for a standing lamp
+specification.
+
+111
+00:06:34,933 --> 00:06:39,266
+The next thing that we're going to do
+is to convert between different formats.
+
+112
+00:06:39,800 --> 00:06:43,566
+GBC is very good at translating
+between different formats such as JSON to
+
+113
+00:06:43,800 --> 00:06:47,366
+HTML, XML, all kinds of things, markdown.
+
+114
+00:06:48,666 --> 00:06:49,466
+And so in the
+
+115
+00:06:49,466 --> 00:06:52,200
+prompt will describe both the input
+and the output formats.
+
+116
+00:06:52,666 --> 00:06:55,466
+So here is an example.
+
+117
+00:06:55,833 --> 00:06:59,700
+So we have this JSON that contains
+
+118
+00:07:00,300 --> 00:07:04,433
+a list of restaurant employees
+with their name and email.
+
+119
+00:07:04,433 --> 00:07:08,400
+And then in the prompt,
+we're going to ask the model
+
+120
+00:07:08,400 --> 00:07:11,500
+to translate this from JSON to its HTML.
+
+121
+00:07:11,800 --> 00:07:15,500
+So the prompt is translate
+the following Python dictionary from JSON
+
+122
+00:07:15,733 --> 00:07:21,600
+to an HTML table
+with column headers and titles,
+
+123
+00:07:21,600 --> 00:07:25,800
+and then we'll get the response
+
+124
+00:07:26,600 --> 00:07:29,933
+from the model and print it.
+
+125
+00:07:29,933 --> 00:07:33,300
+So here we have some HTML displaying
+
+126
+00:07:33,300 --> 00:07:36,933
+all of the employee names and emails.
+
+127
+00:07:38,533 --> 00:07:40,133
+And so now let's
+
+128
+00:07:40,133 --> 00:07:42,600
+see if we can actually view this HTML.
+
+129
+00:07:43,366 --> 00:07:48,033
+So we're going to use this
+display function from this Python library
+
+130
+00:07:48,433 --> 00:07:54,533
+display HTML response.
+
+131
+00:07:54,533 --> 00:07:57,900
+And here you can see that
+this is a properly formatted
+
+132
+00:07:58,433 --> 00:08:01,233
+HTML table.
+
+133
+00:08:01,233 --> 00:08:06,600
+The next transformation task we're going
+to do is spell check and grammar checking.
+
+134
+00:08:07,033 --> 00:08:10,566
+And this is a really kind of popular
+use for GPT.
+
+135
+00:08:10,566 --> 00:08:12,633
+I highly recommend doing this.
+
+136
+00:08:12,633 --> 00:08:15,066
+I do this all the time
+and it's especially useful
+
+137
+00:08:15,066 --> 00:08:17,166
+when you're walking
+in a non-native language.
+
+138
+00:08:17,166 --> 00:08:20,400
+And so here are some examples
+of some common grammar
+
+139
+00:08:20,400 --> 00:08:24,600
+and spelling problems and how the language
+model can help address these.
+
+140
+00:08:25,500 --> 00:08:28,866
+So I'm going to paste in a list of
+
+141
+00:08:29,133 --> 00:08:32,433
+sentences that have some grammatical
+or spelling errors,
+
+142
+00:08:33,400 --> 00:08:35,400
+and then we're going to
+
+143
+00:08:35,400 --> 00:08:37,933
+loop through each of these sentences
+
+144
+00:08:42,100 --> 00:08:46,800
+and ask the model to proofread these
+
+145
+00:08:49,200 --> 00:08:51,366
+proofread and correct,
+
+146
+00:08:52,033 --> 00:08:54,533
+and then we'll use some delimiter limiters
+
+147
+00:09:04,333 --> 00:09:06,400
+and then we will get the response
+
+148
+00:09:06,400 --> 00:09:27,933
+and print it as usual.
+
+149
+00:09:27,933 --> 00:09:30,866
+And so the model is able to correct
+
+150
+00:09:31,333 --> 00:09:33,766
+all of these grammatical errors,
+
+151
+00:09:34,066 --> 00:09:36,600
+and we could use some of the techniques
+that we've discussed before.
+
+152
+00:09:36,833 --> 00:09:39,633
+So we could to improve the prompt.
+
+153
+00:09:39,633 --> 00:09:42,600
+We can say proofreading, correct
+the following text
+
+154
+00:09:46,100 --> 00:09:47,900
+and rewrite
+
+155
+00:09:56,433 --> 00:09:59,733
+and rewrite the whole
+
+156
+00:10:02,366 --> 00:10:04,500
+and rewrite it,
+
+157
+00:10:04,800 --> 00:10:06,366
+corrected
+
+158
+00:10:08,733 --> 00:10:09,300
+version.
+
+159
+00:10:09,300 --> 00:10:13,700
+If you don't find any errors,
+
+160
+00:10:14,800 --> 00:10:16,533
+just say
+
+161
+00:10:16,900 --> 00:10:17,766
+no errors.
+
+162
+00:10:17,766 --> 00:10:21,266
+Found.
+
+163
+00:10:21,266 --> 00:10:26,466
+Let's try this.
+
+164
+00:10:26,466 --> 00:10:30,166
+So this way
+we were able to still using quotes here,
+
+165
+00:10:31,233 --> 00:10:33,633
+but you can imagine
+you'd be able to find a way
+
+166
+00:10:33,633 --> 00:10:37,366
+with a little bit of iterative
+prompt development
+
+167
+00:10:37,633 --> 00:10:40,700
+to kind of find a problem that works
+more reliably every single time.
+
+168
+00:10:41,966 --> 00:10:43,833
+And so now we'll do another example.
+
+169
+00:10:43,833 --> 00:10:48,033
+It's always useful to check your text
+before you post it in a public forum.
+
+170
+00:10:48,233 --> 00:10:50,700
+And so we'll go through an example
+of checking a review.
+
+171
+00:10:51,633 --> 00:10:54,233
+And so here is a review
+about a stuffed panda.
+
+172
+00:10:54,233 --> 00:11:01,100
+And so we're going to ask the model
+to proofread and correct the review.
+
+173
+00:11:01,100 --> 00:11:01,400
+Great.
+
+174
+00:11:01,400 --> 00:11:06,733
+So we have this corrected version, and one
+cool thing we can do is find the kind
+
+175
+00:11:06,733 --> 00:11:10,500
+of differences between our original review
+and the model's output.
+
+176
+00:11:11,000 --> 00:11:15,033
+So we're going to use this red lines
+Python package to do this,
+
+177
+00:11:15,033 --> 00:11:19,066
+and we're going to get the diff
+between the original
+
+178
+00:11:20,133 --> 00:11:22,900
+text of our review and the model output
+
+179
+00:11:23,200 --> 00:11:27,366
+and then display this.
+
+180
+00:11:27,366 --> 00:11:31,500
+And so here you can see the difference
+between the original review and
+
+181
+00:11:31,866 --> 00:11:35,033
+the model output and the kind of things
+that have been corrected.
+
+182
+00:11:35,666 --> 00:11:40,766
+So the prompt that we use was proofread
+and correct this review, but you can also
+
+183
+00:11:40,766 --> 00:11:45,633
+make kind of more dramatic changes,
+changes to tone and that kind of thing.
+
+184
+00:11:45,933 --> 00:11:50,133
+So let's try one more thing.
+
+185
+00:11:50,533 --> 00:11:54,100
+So in this prompt,
+we're going to ask the model to proofread
+
+186
+00:11:54,100 --> 00:11:57,766
+and correct this same review,
+but also make it more compelling
+
+187
+00:11:58,033 --> 00:12:01,733
+and ensure that it follows
+APA style and targets an advanced reader.
+
+188
+00:12:02,033 --> 00:12:04,766
+And we're also going to ask
+for the output in markdown format.
+
+189
+00:12:05,033 --> 00:12:08,166
+And so we're using the same text
+from the original review up here.
+
+190
+00:12:09,000 --> 00:12:13,433
+So let's execute this.
+
+191
+00:12:13,433 --> 00:12:16,100
+And here we have a expanded
+
+192
+00:12:16,633 --> 00:12:19,533
+APA style review of the soft panda.
+
+193
+00:12:20,566 --> 00:12:22,466
+So this is it for the transforming video.
+
+194
+00:12:22,466 --> 00:12:25,900
+Next up, we have expanding where
+we'll take a shorter prompt
+
+195
+00:12:25,900 --> 00:12:30,966
+and kind of generate a longer, more free
+form response from a language model.

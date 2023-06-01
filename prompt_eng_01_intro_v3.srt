@@ -1,0 +1,496 @@
+﻿1
+00:00:05,105 --> 00:00:05,638
+Welcome to
+
+2
+00:00:05,638 --> 00:00:08,975
+this course on
+catch up from engineering for developers
+
+3
+00:00:09,376 --> 00:00:14,147
+are thrilled to have with me
+is a full fit to teach this along with me
+
+4
+00:00:14,514 --> 00:00:19,252
+She's a member of the technical staff
+of Openai and had built the popular chip
+
+5
+00:00:19,486 --> 00:00:23,423
+retrieval plugin, and a large
+part of the work has been teaching people
+
+6
+00:00:23,656 --> 00:00:27,360
+how to use l M or large language
+model technology in products.
+
+7
+00:00:27,727 --> 00:00:31,464
+She's also a contributor to the Open,
+a cookbook that teaches people prompting.
+
+8
+00:00:31,464 --> 00:00:34,667
+So thrilled to have you with you
+and I'm thrilled to be here and share
+
+9
+00:00:34,667 --> 00:00:36,703
+some prompting best practices
+with you all.
+
+10
+00:00:38,204 --> 00:00:41,708
+So there's been a lot of material
+on the internet for prompting
+
+11
+00:00:41,708 --> 00:00:44,944
+with articles like 30 prompts
+everyone has to do.
+
+12
+00:00:45,678 --> 00:00:50,250
+A lot of that has been focused
+on the chat Jupiter Web user interface,
+
+13
+00:00:50,250 --> 00:00:54,421
+which many people are using to do specific
+and often one off tasks.
+
+14
+00:00:54,888 --> 00:00:59,993
+But I think the power of our like language
+models as a developer to
+
+15
+00:01:00,360 --> 00:01:04,798
+that is using API calls to OEMs to quickly
+build software applications.
+
+16
+00:01:04,798 --> 00:01:07,734
+I think that is still very
+underappreciated.
+
+17
+00:01:08,201 --> 00:01:09,602
+In fact, my team at A.I.
+
+18
+00:01:09,602 --> 00:01:13,239
+Fund, which is a sister company
+to deep A.I., has been working
+
+19
+00:01:13,239 --> 00:01:16,543
+with many startups
+on applying these technologies
+
+20
+00:01:16,743 --> 00:01:20,313
+to many different applications,
+and it's been exciting to see
+
+21
+00:01:20,513 --> 00:01:25,151
+what APIs can enable developers
+to very quickly build.
+
+22
+00:01:25,718 --> 00:01:29,823
+So in this course, we'll share with you
+some of the possibilities for what
+
+23
+00:01:29,889 --> 00:01:33,660
+you can do as well as best practices
+for how you can do them.
+
+24
+00:01:34,761 --> 00:01:37,397
+There's a lot of material to cover fast.
+
+25
+00:01:37,397 --> 00:01:40,934
+You'll learn best, some prompting
+best practices for software development
+
+26
+00:01:41,134 --> 00:01:45,138
+that will cover some common use cases
+summarizing, inferring,
+
+27
+00:01:45,271 --> 00:01:47,040
+transforming, expanding.
+
+28
+00:01:47,040 --> 00:01:49,576
+And then you'll build a chatbot
+using an Al-Alam.
+
+29
+00:01:50,310 --> 00:01:51,044
+We hope that
+
+30
+00:01:51,044 --> 00:01:54,314
+this will spark your imagination
+about new applications that you can build.
+
+31
+00:01:55,148 --> 00:01:59,853
+So in the development of large language
+models, OEMs have been broadly two types
+
+32
+00:01:59,853 --> 00:02:02,555
+of of which I'm going to refer to as base
+
+33
+00:02:03,456 --> 00:02:06,059
+and instruction tunes elements.
+
+34
+00:02:06,059 --> 00:02:09,496
+So Basil has been trained
+to predict the next words
+
+35
+00:02:09,829 --> 00:02:13,500
+based on text training data, often
+trained on large amount of data
+
+36
+00:02:13,666 --> 00:02:15,301
+from the Internet and other sources
+
+37
+00:02:15,301 --> 00:02:19,472
+to figure out what's the next
+most likely word to follow.
+
+38
+00:02:19,472 --> 00:02:21,574
+So, for example,
+if you were to prompt this,
+
+39
+00:02:21,808 --> 00:02:25,378
+once upon a time there was a unicorn,
+it may complete.
+
+40
+00:02:25,378 --> 00:02:27,747
+This does is it
+may predict the next several words
+
+41
+00:02:27,747 --> 00:02:30,550
+are that live in the magical forest
+of all unicorn friends.
+
+42
+00:02:31,818 --> 00:02:32,318
+But if you
+
+43
+00:02:32,318 --> 00:02:35,822
+were to prompt us with
+what is the capital of France, then
+
+44
+00:02:36,222 --> 00:02:41,694
+based on what articles on the internet
+might have is quite possible to the base,
+
+45
+00:02:41,694 --> 00:02:45,765
+our team will complete this
+with what is France's largest city,
+
+46
+00:02:45,765 --> 00:02:49,402
+what is France's population, and so on,
+because articles on the internet
+
+47
+00:02:49,602 --> 00:02:54,407
+could quite plausibly be lists of quiz
+questions about the country of France.
+
+48
+00:02:55,508 --> 00:02:58,044
+In contrast, an instruction tuned out,
+
+49
+00:02:58,678 --> 00:03:03,650
+which is where a lot of momentum
+of research and practice has been going
+
+50
+00:03:04,050 --> 00:03:07,921
+and instruction
+has been trained to follow instructions.
+
+51
+00:03:07,921 --> 00:03:11,157
+So if you were to ask
+what is the capital of France is much
+
+52
+00:03:11,157 --> 00:03:15,028
+more likely to output
+something like two cups of France's Paris.
+
+53
+00:03:15,662 --> 00:03:19,132
+So the way that instruction tune
+owners are typically trained
+
+54
+00:03:19,132 --> 00:03:23,736
+is you start off with a base, doesn't
+train the huge amount of text data
+
+55
+00:03:24,003 --> 00:03:28,308
+and further train it further
+fine, tune it within present outputs
+
+56
+00:03:28,341 --> 00:03:32,145
+the instructions and good attempts
+to follow those instructions
+
+57
+00:03:32,512 --> 00:03:36,683
+and then often further refined
+using a technique called HSF reinforcement
+
+58
+00:03:36,683 --> 00:03:40,520
+learning from human feedback
+to make the system better,
+
+59
+00:03:40,520 --> 00:03:44,290
+able to be helpful and follow instructions
+because instructions
+
+60
+00:03:45,091 --> 00:03:48,528
+have been trained
+to be helpful on this and home this.
+
+61
+00:03:48,962 --> 00:03:52,232
+So for example,
+they're less likely to output problematic
+
+62
+00:03:52,365 --> 00:03:55,201
+text such as toxic outputs
+compared to base alarm.
+
+63
+00:03:55,868 --> 00:03:59,872
+A lot of the practical usage scenarios
+have been shifting to other instructions.
+
+64
+00:03:59,872 --> 00:04:03,476
+You know, as some of the best practices
+you find on the Internet
+
+65
+00:04:03,743 --> 00:04:06,012
+may be more suited for a base element.
+
+66
+00:04:06,279 --> 00:04:10,850
+But for most practical applications today,
+we would recommend most people instead
+
+67
+00:04:10,850 --> 00:04:15,121
+focus on instruction to use ohms,
+which are easier to use,
+
+68
+00:04:15,121 --> 00:04:19,492
+and also because of the work of Open the
+I and other companies
+
+69
+00:04:19,692 --> 00:04:21,728
+becoming safer and more aligned.
+
+70
+00:04:22,695 --> 00:04:23,263
+So this
+
+71
+00:04:23,263 --> 00:04:27,400
+course will focus on best practices
+for instruction to our homes,
+
+72
+00:04:28,101 --> 00:04:31,704
+which is what we recommend
+you use for most of your applications.
+
+73
+00:04:32,338 --> 00:04:33,172
+Before moving on,
+
+74
+00:04:33,172 --> 00:04:37,310
+I just want to acknowledge the team
+from opening and Deployment II
+
+75
+00:04:37,377 --> 00:04:41,614
+that had contributed to the materials
+that is in I will be presenting.
+
+76
+00:04:41,614 --> 00:04:44,817
+I'm very grateful to Andrew Main, Joe
+Palermo, Boris
+
+77
+00:04:44,817 --> 00:04:48,655
+Power,
+Ted Sanders and Lily Wang from Open Air.
+
+78
+00:04:48,688 --> 00:04:51,324
+They were very involved
+with us, brainstorming materials,
+
+79
+00:04:51,324 --> 00:04:55,128
+vetting the materials to put together
+the curriculum for this short course.
+
+80
+00:04:55,328 --> 00:04:57,096
+And I'm also grateful for the tip
+
+81
+00:04:57,096 --> 00:05:00,900
+learning site for the work of Jeff
+Ludwig at issue and Tony Nelson.
+
+82
+00:05:01,334 --> 00:05:03,603
+So when you use an instruction to
+
+83
+00:05:05,038 --> 00:05:07,707
+think of giving instructions
+to another person,
+
+84
+00:05:08,041 --> 00:05:11,978
+say someone that's smart but doesn't know
+the specifics of your task.
+
+85
+00:05:12,412 --> 00:05:16,683
+So when it doesn't work, sometimes it's
+because the instructions
+
+86
+00:05:16,683 --> 00:05:17,650
+weren't clear enough.
+
+87
+00:05:17,650 --> 00:05:22,088
+For example, if you were to say, Please
+write me something about Alan Turing.
+
+88
+00:05:22,555 --> 00:05:26,225
+Well, in addition to that,
+it can be helpful to be clear
+
+89
+00:05:26,392 --> 00:05:30,697
+about whether you want the text
+to focus on his scientific work
+
+90
+00:05:30,697 --> 00:05:34,334
+or his personal life
+or his role in history or something else.
+
+91
+00:05:34,834 --> 00:05:39,972
+And if you specify what you want
+the tone of the text to be shouldn't
+
+92
+00:05:40,006 --> 00:05:43,076
+take on a tone like a professional
+journalists were right?
+
+93
+00:05:43,076 --> 00:05:44,677
+Or is it more of a casual note
+
+94
+00:05:44,677 --> 00:05:48,648
+that you dash off to a friend
+that hopes to generate what you want?
+
+95
+00:05:49,082 --> 00:05:53,720
+And of course, if you picture yourself
+asking, see a fresh college graduate
+
+96
+00:05:54,053 --> 00:05:57,824
+to carry out this task for you,
+if you can even specify
+
+97
+00:05:57,890 --> 00:06:00,960
+what snippets of texts
+they should read in advance to write
+
+98
+00:06:00,960 --> 00:06:04,564
+this text about Alan Turing,
+then that even better sets up
+
+99
+00:06:04,630 --> 00:06:08,334
+that fresh college track for success
+to carry out this task for you.
+
+100
+00:06:09,001 --> 00:06:14,307
+So in the next video you see examples
+of how to be clear and specific,
+
+101
+00:06:14,307 --> 00:06:17,377
+which is an important
+principle of prompting ohms.
+
+102
+00:06:17,677 --> 00:06:21,547
+And you also learned from either
+a second principle of prompting
+
+103
+00:06:21,814 --> 00:06:27,253
+that is giving a little time to think so
+that let's go on to the next video.

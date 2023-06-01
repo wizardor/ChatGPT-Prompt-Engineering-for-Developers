@@ -1,0 +1,586 @@
+﻿1
+00:00:05,033 --> 00:00:07,633
+There's so much sex in today's world,
+pretty much
+
+2
+00:00:07,633 --> 00:00:11,966
+none of us have enough time to read
+all the things we wish we had time to.
+
+3
+00:00:12,533 --> 00:00:15,200
+So one of the most exciting applications
+I've seen of large
+
+4
+00:00:15,200 --> 00:00:18,366
+language models,
+this is use it to summarize text.
+
+5
+00:00:18,366 --> 00:00:20,133
+And this is something that I'm seeing
+
+6
+00:00:20,133 --> 00:00:23,700
+multiple teams
+built into multiple software applications.
+
+7
+00:00:24,366 --> 00:00:26,700
+You can do this in the chat
+GBC web interface.
+
+8
+00:00:26,900 --> 00:00:30,466
+I do this all the time to summarize
+articles, so I can just kind of read
+
+9
+00:00:30,466 --> 00:00:32,666
+the content of many will articles
+in my previous to code.
+
+10
+00:00:33,300 --> 00:00:35,133
+And you want to do this
+more programmatically.
+
+11
+00:00:35,133 --> 00:00:39,366
+You'll see how to in this lesson
+so that let's take in the code
+
+12
+00:00:39,366 --> 00:00:42,700
+to see how you can use this yourself
+to summarize sex.
+
+13
+00:00:43,266 --> 00:00:47,433
+So let's start off with the same article
+as you saw before of import over there.
+
+14
+00:00:47,466 --> 00:00:51,666
+I know the API key
+and here's that completion helper function
+
+15
+00:00:52,500 --> 00:00:56,000
+I'm going to use as the running example.
+
+16
+00:00:56,566 --> 00:01:01,100
+The task of summarizing
+this product review got suspended
+
+17
+00:01:01,100 --> 00:01:04,166
+last week for a daughter's birthday
+who loves it and takes it everywhere.
+
+18
+00:01:04,400 --> 00:01:06,066
+And so on and so on.
+
+19
+00:01:06,066 --> 00:01:08,933
+If you're building an e-commerce website
+
+20
+00:01:10,166 --> 00:01:13,100
+and there's
+just a large volume of reviews,
+
+21
+00:01:13,433 --> 00:01:17,033
+having a tool to summarize
+the lengthy reviews could give you a way
+
+22
+00:01:17,033 --> 00:01:20,566
+to very quickly glance over more reviews
+to get a better sense
+
+23
+00:01:20,566 --> 00:01:22,800
+of what all your customers are thinking.
+
+24
+00:01:23,966 --> 00:01:26,300
+So here's a prompt
+for generating a summary.
+
+25
+00:01:27,066 --> 00:01:28,033
+Your task is generated.
+
+26
+00:01:28,033 --> 00:01:30,266
+Short summary of our probably review
+from e-commerce website.
+
+27
+00:01:30,266 --> 00:01:32,433
+Summarize review below and so on.
+
+28
+00:01:33,000 --> 00:01:36,433
+In that most three words
+
+29
+00:01:36,433 --> 00:01:38,966
+and so this is something cute
+
+30
+00:01:39,166 --> 00:01:43,066
+panda plush toys that buy daughter bismol
+for the price arrive early.
+
+31
+00:01:43,333 --> 00:01:47,400
+Oh that's pretty good summary
+and as you saw in the previous video
+
+32
+00:01:47,700 --> 00:01:50,633
+you can also play with things
+like controlling the character count
+
+33
+00:01:50,633 --> 00:01:54,866
+or the number of sentences
+to affect the length of this summary.
+
+34
+00:01:55,500 --> 00:01:59,433
+Now, sometimes when creating a summary,
+if you have a very specific purpose
+
+35
+00:01:59,433 --> 00:02:03,600
+in mind for the summary, for example,
+if you want to give feedback
+
+36
+00:02:03,600 --> 00:02:07,100
+to the shipping department,
+you can also modify the prompt
+
+37
+00:02:07,400 --> 00:02:11,966
+to reflect that so that it can generate
+a summary that is more applicable
+
+38
+00:02:12,333 --> 00:02:14,900
+to one particular group in your business.
+
+39
+00:02:15,333 --> 00:02:20,500
+So for example, if I adds to give feedback
+
+40
+00:02:21,600 --> 00:02:23,233
+to the
+
+41
+00:02:24,166 --> 00:02:27,133
+shipping
+department that say I change this,
+
+42
+00:02:27,133 --> 00:02:31,366
+to tend to focus on
+any aspects that mention
+
+43
+00:02:33,600 --> 00:02:35,500
+shipping and delivery of the product.
+
+44
+00:02:35,500 --> 00:02:38,533
+And if I run this, then
+
+45
+00:02:38,533 --> 00:02:40,000
+again you get a summary.
+
+46
+00:02:40,000 --> 00:02:43,600
+But instead of starting off
+with something, you panned a plush toy.
+
+47
+00:02:44,000 --> 00:02:48,933
+It now focuses on the fact that it arrived
+a day earlier than expected.
+
+48
+00:02:48,933 --> 00:02:51,333
+And then the store has other details that
+
+49
+00:02:53,300 --> 00:02:55,200
+or as another example,
+
+50
+00:02:55,200 --> 00:02:59,033
+if we aren't trying to give feedback
+to the shipping department,
+
+51
+00:02:59,400 --> 00:03:01,700
+but let's say we want to give feedback
+
+52
+00:03:02,100 --> 00:03:09,366
+to the pricing department.
+
+53
+00:03:09,366 --> 00:03:12,100
+So the pricing department is
+
+54
+00:03:12,100 --> 00:03:15,900
+responsible for determining
+the price of the product, and
+
+55
+00:03:17,166 --> 00:03:19,233
+I'm going to tell it to focus on
+
+56
+00:03:20,533 --> 00:03:24,966
+any aspects of relevance,
+The price and perceived value.
+
+57
+00:03:24,966 --> 00:03:27,433
+Then this generates a different summary
+
+58
+00:03:28,500 --> 00:03:29,366
+that it says.
+
+59
+00:03:29,366 --> 00:03:32,200
+So maybe
+the price may be too high for a size.
+
+60
+00:03:33,300 --> 00:03:36,833
+Now in the summary that I've generated
+for the shipping department
+
+61
+00:03:36,833 --> 00:03:40,000
+or the pricing department, it focus a bit
+
+62
+00:03:40,000 --> 00:03:44,166
+more on information relevant
+to those specific departments.
+
+63
+00:03:44,166 --> 00:03:47,900
+And in fact, feel free to pause the video
+now and maybe ask it
+
+64
+00:03:47,933 --> 00:03:52,033
+to generate information
+for the product department
+
+65
+00:03:52,033 --> 00:03:56,133
+responsible for the customer experience
+of the product or for something else
+
+66
+00:03:56,133 --> 00:04:01,733
+that you think might be interesting
+to an e-commerce site.
+
+67
+00:04:01,733 --> 00:04:05,233
+But in these summaries,
+even though it generated information
+
+68
+00:04:05,533 --> 00:04:07,966
+relevant to shipping,
+had some of the information
+
+69
+00:04:07,966 --> 00:04:11,966
+to which you could decide
+may or may not be helpful.
+
+70
+00:04:11,966 --> 00:04:15,633
+So depending on
+how you want to summarize it,
+
+71
+00:04:15,633 --> 00:04:19,633
+you can also ask it to extract information
+
+72
+00:04:19,900 --> 00:04:21,900
+rather than summarize it.
+
+73
+00:04:22,800 --> 00:04:25,766
+So here's a prompts
+that says it has to extract relevant
+
+74
+00:04:25,766 --> 00:04:28,966
+information
+to give feedback to shipping department.
+
+75
+00:04:28,966 --> 00:04:33,733
+And now it just says product arrives a day
+earlier than expected
+
+76
+00:04:34,000 --> 00:04:37,533
+without all of the other information,
+which was also helpful
+
+77
+00:04:37,533 --> 00:04:41,700
+in a general summary, but less specific
+to the shipping department,
+
+78
+00:04:41,700 --> 00:04:44,000
+if I wants to know, is
+what happened with the shipping.
+
+79
+00:04:45,433 --> 00:04:46,233
+Lastly, let me just
+
+80
+00:04:46,233 --> 00:04:51,066
+share with you a concrete example
+for how to use this in a workflow to help
+
+81
+00:04:51,333 --> 00:04:54,733
+summarize multiple reviews
+to make them easier to read.
+
+82
+00:04:56,400 --> 00:04:59,366
+So here are a few reviews.
+
+83
+00:04:59,733 --> 00:05:03,300
+This is kind of long, but here's
+the second review for a seminar.
+
+84
+00:05:03,300 --> 00:05:04,800
+Neither from a bedroom.
+
+85
+00:05:04,800 --> 00:05:07,200
+His a review from a lecture Toothbrush.
+
+86
+00:05:07,200 --> 00:05:09,400
+My dental hygiene is recommended
+
+87
+00:05:09,400 --> 00:05:12,566
+kind of a long review
+about the electric toothbrush.
+
+88
+00:05:13,100 --> 00:05:15,566
+This is a review from Blender
+when they said sell said
+
+89
+00:05:15,566 --> 00:05:18,600
+17 piece system on seasonal sale and so on
+and so on.
+
+90
+00:05:18,633 --> 00:05:20,100
+This is actually a longer tax.
+
+91
+00:05:20,100 --> 00:05:22,733
+If you want, feel free
+to pause the video, visit all this text.
+
+92
+00:05:23,100 --> 00:05:26,400
+But what did you want to know
+what these reviews wrote
+
+93
+00:05:26,400 --> 00:05:30,466
+without having to stop
+and read all this in detail.
+
+94
+00:05:30,466 --> 00:05:34,766
+So I'm going to set review
+one to be just a product review
+
+95
+00:05:34,766 --> 00:05:41,400
+that we had up there.
+
+96
+00:05:41,400 --> 00:05:44,600
+And I'm going to put all of these reviews
+into a list.
+
+97
+00:05:44,966 --> 00:05:47,100
+And now if I implement a
+
+98
+00:05:48,966 --> 00:05:50,033
+full loop over the
+
+99
+00:05:50,033 --> 00:05:54,700
+reviews, So here's my prompt
+
+100
+00:05:55,233 --> 00:06:00,066
+and share of asset to summarize it
+at most 20 words,
+
+101
+00:06:00,933 --> 00:06:03,166
+then let's have it
+
+102
+00:06:05,400 --> 00:06:06,233
+get the response
+
+103
+00:06:06,233 --> 00:06:10,133
+and print it out and let's run that
+
+104
+00:06:10,400 --> 00:06:11,333
+and it prints out
+
+105
+00:06:11,333 --> 00:06:15,333
+the first review asset and the toy review
+summary, the review of the lamp,
+
+106
+00:06:16,100 --> 00:06:21,400
+some review of the toothbrush
+and then the blender.
+
+107
+00:06:21,400 --> 00:06:24,466
+And so if you have
+
+108
+00:06:24,466 --> 00:06:27,600
+websites
+where you have hundreds of reviews,
+
+109
+00:06:27,600 --> 00:06:32,100
+you can imagine how you might use this
+to build a dashboard
+
+110
+00:06:32,100 --> 00:06:36,233
+to take huge numbers of reviews,
+generally short summaries of them so that
+
+111
+00:06:37,266 --> 00:06:40,233
+you or someone else can browse
+the reviews much more quickly.
+
+112
+00:06:40,466 --> 00:06:46,033
+And then if they wish, maybe click in
+to see the original longer review.
+
+113
+00:06:46,033 --> 00:06:49,233
+And this can help you efficiently
+get a better sense
+
+114
+00:06:49,233 --> 00:06:53,300
+of what
+all of your customers are thinking.
+
+115
+00:06:53,300 --> 00:06:53,533
+Right?
+
+116
+00:06:53,533 --> 00:06:57,400
+So that's it for summarizing,
+and I hope that you can picture
+
+117
+00:06:57,533 --> 00:07:00,300
+if you have any applications
+with many pieces of text,
+
+118
+00:07:00,733 --> 00:07:04,900
+how you can use prompts like these
+to summarize them, to help people quickly
+
+119
+00:07:04,900 --> 00:07:07,866
+get a sense of what's in the attacks,
+the many pieces of text,
+
+120
+00:07:08,100 --> 00:07:12,300
+and perhaps optionally take in more
+if they wish.
+
+121
+00:07:12,300 --> 00:07:15,366
+In the next video,
+we'll look at another capability
+
+122
+00:07:15,366 --> 00:07:19,333
+of large language models,
+which is to make inferences using texts.
+
+123
+00:07:19,733 --> 00:07:20,600
+For example,
+
+124
+00:07:20,600 --> 00:07:24,066
+what have you had a game product reviews
+and you wanted to very quickly
+
+125
+00:07:24,066 --> 00:07:29,066
+get a sense of which product reviews
+have a positive or negative sentiment.
+
+126
+00:07:29,433 --> 00:07:32,000
+Let's take a look at
+how to do that in the next video.
